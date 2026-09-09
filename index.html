@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday AYAN</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(
+                -45deg,
+                #ff4b91,
+                #7b2ff7,
+                #00c6ff,
+                #00e5a8,
+                #ffd166,
+                #ff6b6b
+            );
+
+            background-size: 500% 500%;
+            animation: backgroundChange 12s ease infinite;
+
+            position: relative;
+        }
+
+        /* Moving colorful background */
+        @keyframes backgroundChange {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            25% {
+                background-position: 100% 50%;
+            }
+
+            50% {
+                background-position: 100% 100%;
+            }
+
+            75% {
+                background-position: 0% 100%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Glow */
+        body::before {
+            content: "";
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.18);
+
+            filter: blur(80px);
+
+            top: -100px;
+            left: -100px;
+
+            animation: glowOne 8s ease-in-out infinite alternate;
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.20);
+
+            filter: blur(80px);
+
+            bottom: -100px;
+            right: -100px;
+
+            animation: glowTwo 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowOne {
+            to {
+                transform: translate(180px,150px);
+            }
+        }
+
+        @keyframes glowTwo {
+            to {
+                transform: translate(-180px,-150px);
+            }
+        }
+
+        /* Main card */
+        .card {
+            position: relative;
+            z-index: 5;
+
+            width: 92%;
+            max-width: 560px;
+
+            padding: 28px 20px 30px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,0.20);
+
+            border: 1px solid rgba(255,255,255,0.45);
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.30),
+                inset 0 0 25px rgba(255,255,255,0.12);
+        }
+
+        /* Title */
+        h1 {
+            color: #006eff;
+
+            font-size: clamp(35px, 8vw, 58px);
+
+            font-weight: 900;
+
+            line-height: 1.1;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+
+            text-shadow:
+                2px 2px 0 white,
+                0 0 20px rgba(0,100,255,0.7);
+
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from {
+                text-shadow:
+                    2px 2px 0 white,
+                    0 0 10px rgba(0,100,255,0.4);
+            }
+
+            to {
+                text-shadow:
+                    2px 2px 0 white,
+                    0 0 30px rgba(0,100,255,0.9);
+            }
+        }
+
+        /* Small birthday line */
+        .subtitle {
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            margin-bottom: 5px;
+
+            text-shadow:
+                0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        /* Cake section */
+        .cake-area {
+            position: relative;
+
+            width: 100%;
+
+            height: 210px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: flex-end;
+
+            margin-top: 0;
+        }
+
+        /* Smaller cake */
+        .cake {
+            position: relative;
+
+            width: 175px;
+            height: 85px;
+
+            background:
+                linear-gradient(
+                    #ff9fc5,
+                    #e83f7d
+                );
+
+            border-radius:
+                12px 12px 20px 20px;
+
+            box-shadow:
+                0 15px 25px rgba(0,0,0,0.30);
+        }
+
+        /* Icing */
+        .icing {
+            position: absolute;
+
+            top: -16px;
+            left: 0;
+
+            width: 100%;
+            height: 35px;
+
+            background: white;
+
+            border-radius:
+                20px 20px 12px 12px;
+        }
+
+        /* Icing drops */
+        .icing::before,
+        .icing::after {
+            content: "";
+
+            position: absolute;
+
+            bottom: -10px;
+
+            width: 25px;
+            height: 20px;
+
+            background: white;
+
+            border-radius:
+                0 0 50% 50%;
+        }
+
+        .icing::before {
+            left: 40px;
+        }
+
+        .icing::after {
+            right: 40px;
+        }
+
+        /* Cake layers */
+        .layer {
+            position: absolute;
+
+            left: 0;
+
+            width: 100%;
+            height: 5px;
+
+            background: #ffc6dd;
+        }
+
+        .layer.one {
+            top: 32px;
+        }
+
+        .layer.two {
+            top: 58px;
+        }
+
+        /* Candles */
+        .candles {
+            position: absolute;
+
+            top: -75px;
+
+            left: 0;
+
+            width: 100%;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 22px;
+        }
+
+        .candle {
+            position: relative;
+
+            width: 11px;
+            height: 48px;
+
+            border-radius: 4px;
+
+            background:
+                repeating-linear-gradient(
+                    45deg,
+                    #0878d1 0px,
+                    #0878d1 7px,
+                    white 7px,
+                    white 14px
+                );
+        }
+
+        /* Flame */
+        .flame {
+            position: absolute;
+
+            top: -21px;
+            left: 1px;
+
+            width: 9px;
+            height: 17px;
+
+            background: #ffb300;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 12px #ff9800,
+                0 0 20px #ffd000;
+
+            animation:
+                flameMove .6s infinite alternate;
+        }
+
+        @keyframes flameMove {
+            from {
+                transform: scale(1) rotate(-3deg);
+            }
+
+            to {
+                transform: scale(.75) rotate(3deg);
+            }
+        }
+
+        /* Religious birthday line */
+        .allah {
+            margin-top: 5px;
+
+            color: #ffffff;
+
+            font-size: clamp(21px, 6vw, 30px);
+
+            font-weight: 900;
+
+            letter-spacing: 3px;
+
+            text-shadow:
+                0 0 8px #006eff,
+                0 0 18px #006eff,
+                2px 2px 3px rgba(0,0,0,.4);
+
+            animation:
+                allahGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes allahGlow {
+            from {
+                transform: scale(1);
+                opacity: .85;
+            }
+
+            to {
+                transform: scale(1.04);
+                opacity: 1;
+            }
+        }
+
+        /* Celebrate button */
+        button {
+            margin-top: 15px;
+
+            padding: 12px 32px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    45deg,
+                    #006eff,
+                    #00c6ff
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px rgba(0,100,255,.4);
+
+            transition: .3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+        }
+
+        button:active {
+            transform: scale(.95);
+        }
+
+        /* Flying balloons */
+        .balloon {
+            position: fixed;
+
+            width: 38px;
+            height: 48px;
+
+            border-radius: 50% 50% 45% 45%;
+
+            z-index: 3;
+
+            box-shadow:
+                inset -7px -8px 12px rgba(0,0,0,.18),
+                0 5px 15px rgba(0,0,0,.15);
+
+            animation: flyBalloon 7s linear infinite;
+        }
+
+        .balloon::before {
+            content: "";
+
+            position: absolute;
+
+            bottom: -6px;
+            left: 15px;
+
+            width: 8px;
+            height: 8px;
+
+            background: inherit;
+
+            transform: rotate(45deg);
+        }
+
+        .balloon::after {
+            content: "";
+
+            position: absolute;
+
+            top: 47px;
+            left: 19px;
+
+            width: 1px;
+            height: 80px;
+
+            background: rgba(255,255,255,.8);
+        }
+
+        .balloon.left {
+            left: 5%;
+
+            bottom: -100px;
+
+            background: #006eff;
+
+            animation-delay: 0s;
+        }
+
+        .balloon.right {
+            right: 5%;
+
+            bottom: -100px;
+
+            background: #ff4b91;
+
+            animation-delay: 2s;
+        }
+
+        @keyframes flyBalloon {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(-8deg);
+
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            50% {
+                transform:
+                    translateY(-55vh)
+                    translateX(35px)
+                    rotate(8deg);
+            }
+
+            100% {
+                transform:
+                    translateY(-115vh)
+                    translateX(-25px)
+                    rotate(-8deg);
+
+                opacity: 0;
+            }
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+
+            top: -20px;
+
+            width: 9px;
+            height: 16px;
+
+            z-index: 20;
+
+            pointer-events: none;
+
+            animation:
+                fall linear forwards;
+        }
+
+        @keyframes fall {
+
+            0% {
+                transform:
+                    translateY(-20px)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
+
+                opacity: 0;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            .card {
+                width: 94%;
+
+                padding:
+                    22px 10px 25px;
+            }
+
+            h1 {
+                font-size: 37px;
+
+                margin-bottom: 5px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .cake-area {
+                height: 190px;
+            }
+
+            .cake {
+                width: 155px;
+                height: 75px;
+            }
+
+            .candles {
+                top: -68px;
+
+                gap: 18px;
+            }
+
+            .candle {
+                width: 10px;
+                height: 43px;
+            }
+
+            .allah {
+                font-size: 20px;
+                letter-spacing: 2px;
+            }
+
+            .balloon {
+                width: 30px;
+                height: 40px;
+            }
+
+            button {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Flying balloons -->
+    <div class="balloon left"></div>
+    <div class="balloon right"></div>
+
+
+    <!-- Main card -->
+    <div class="card">
+
+        <!-- Main title -->
+        <h1>
+            HAPPY BIRTHDAY<br>
+            AYAN
+        </h1>
+
+        <div class="subtitle">
+            Wishing you happiness, success and beautiful memories.
+        </div>
+
+
+        <!-- Cake -->
+        <div class="cake-area">
+
+            <div class="cake">
+
+                <div class="icing"></div>
+
+                <div class="layer one"></div>
+                <div class="layer two"></div>
+
+                <div class="candles">
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Special line -->
+        <div class="allah">
+            ALLAH HU AKBAR
+        </div>
+
+
+        <!-- Button -->
+        <button onclick="celebrate()">
+            CELEBRATE
+        </button>
+
+    </div>
+
+
+    <script>
+
+        /* Confetti colors */
+        const colors = [
+            "#006eff",
+            "#00c6ff",
+            "#ff4b91",
+            "#ffd166",
+            "#00e5a8",
+            "#7b2ff7",
+            "#ff6b6b",
+            "#ffffff"
+        ];
+
+
+        /* Create confetti */
+        function createConfetti(amount) {
+
+            for (let i = 0; i < amount; i++) {
+
+                const piece =
+                    document.createElement("div");
+
+                piece.className = "confetti";
+
+                piece.style.left =
+                    Math.random() * 100 + "vw";
+
+                piece.style.backgroundColor =
+                    colors[
+                        Math.floor(
+                            Math.random() * colors.length
+                        )
+                    ];
+
+                piece.style.width =
+                    Math.random() * 8 + 5 + "px";
+
+                piece.style.height =
+                    Math.random() * 12 + 7 + "px";
+
+                piece.style.animationDuration =
+                    Math.random() * 3 + 3 + "s";
+
+                piece.style.animationDelay =
+                    Math.random() * 1.5 + "s";
+
+                document.body.appendChild(piece);
+
+                setTimeout(() => {
+                    piece.remove();
+                }, 7000);
+            }
+        }
+
+
+        /* Celebrate */
+        function celebrate() {
+
+            createConfetti(300);
+
+            const button =
+                document.querySelector("button");
+
+            button.innerText =
+                "HAPPY BIRTHDAY AYAN!";
+
+            setTimeout(() => {
+
+                button.innerText =
+                    "CELEBRATE";
+
+            }, 4000);
+        }
+
+
+        /* Automatic confetti */
+        window.addEventListener("load", () => {
+
+            setTimeout(() => {
+                createConfetti(180);
+            }, 500);
+
+        });
+
+    </script>
+
+</body>
+</html>
